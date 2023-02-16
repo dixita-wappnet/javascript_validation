@@ -42,27 +42,37 @@
                     
         }
 
-
-    let popup = document.getElementById("popup");
+        let popup = document.getElementById("popup");
     
-    function openPopup()
-    {
+    function openPopup(){
+
+        var name = document.getElementById("inputText").value;
         var inputFiles = document.getElementById("file-upload");
         var fileName = inputFiles.value;
-        var name = document.getElementById("inputText").value;
 
-        if (!fileName)
+        if(name==0)
+        {
+            alert("Enter you name.");
+            returnVal = false;
+        }
+
+        else if (!fileName)
         {
             alert("Please, upload a file.");
             returnVal = false;
-        }else{
-            popup.classList.add("open-popup");
         }
-        document.getElementById("file-upload").value = '';
-            document.getElementById("inputText").value = '';
+   
+        else
+        {        
+            window.location.replace('http://127.0.0.1:5500/popup.html');
+        }
     }
             
     function closePopup()
     {
-        popup.classList.remove("open-popup");
+        window.location.replace('http://127.0.0.1:5500/index.html')
+      
     }
+
+
+    
